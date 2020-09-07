@@ -1,0 +1,6 @@
+.profile__name{
+    display: grid;
+    grid-template-columns: auto 24px;
+    grid-column-gap: 17px;
+    align-self: center;
+}
