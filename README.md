@@ -1,17 +1,23 @@
-# Проект 4: Место
+# Project 4: Mesto (Sndk)
 
-### Обзор
+### About project
 
-* Figma
-* Картинки
+This project makes it possible to view information about the places visited by the traveler. But we slightly modernized the project and provided you with information about the magical worlds voiced by Sndk. 
 
-**Figma**
+You can:
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+* edit information about person
 
-**Картинки**
+**Tools**
 
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
+* HTML
+* CSS
+* JavaScript
 
-Удачи!
+**Next version**
+
+* add functionality for setting likes
+* add new places
+
+**Project link**
+
