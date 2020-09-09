@@ -21,14 +21,14 @@
                     <div class="profile__name">
                         <h1 class="profile__title">Дмитрий Сыендук</h1>
                         <button class="profile__edit-button">
-                            <img src="./images/edit-button.svg" alt="Кнопка редактирования">
+                            <img src="./images/edit-button.svg" class="profile__edit-icon" alt="Кнопка редактирования">
                         </button>
                     </div>
                     <p class="profile__subtitle">Единственная нормальная озвучка</p>
                 </div>
             </div>
             <button class="profile__add-button">
-                <img src="./images/add-button.svg" alt="Кнопка добавления">
+                <img src="./images/add-button.svg" class="profile__add-icon" alt="Кнопка добавления">
             </button>
         </section>
         <ul class="elements">
@@ -91,18 +91,17 @@
     <footer class="footer">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer> 
-    <div class="popup popup__opend">
+    <div class="popup">
         <div class="popup__container">
-            <button class="popup__cross"><img src="./images/close-button.svg" alt="ЗАкрывающая кнопка"></button>
+            <button class="popup__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
             <form class="popup__form">
                 <p class="popup__title">Редактировать профиль</p>
-                <input class="popup__form-name">
-                </input>
-                <input class="popup__form-job">
-                </input>
-                <button class="popup__button">Ок, я понял :з</button>
+                <input type="text" class="popup__input popup__input_name" value="Дмитрий Сыендук" required>
+                <input type="text" class="popup__input popup__input_job" value="Единственная нормальная озвучка" required>
+                <button class="popup__save-button">Ок, я понял :з</button>
             </form>
         </div>
-    </div>   
+    </div>
+    <script src="./JS/index.js"></script> 
 </body>
 </html>

@@ -3,3 +3,9 @@
     vertical-align: bottom;
     margin-top: 40px;
 }
+
+@media (max-width: 340px){
+    .header__line{
+        margin-top: 32px;
+    }
+}

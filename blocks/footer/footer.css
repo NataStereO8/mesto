@@ -4,3 +4,17 @@
     margin-top: 66px;
     margin-bottom: 56px;
 }
+
+@media (max-width: 900px) {
+    .footer{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 340px) {
+    .footer{
+        margin-top: 48px;
+        margin-bottom: 36px;
+    }
+}

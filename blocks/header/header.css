@@ -6,3 +6,19 @@
     margin-top: 45px;
     max-width: 882px;
 }
+
+
+@media (max-width: 900px){
+    .header{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 340px){
+    .header{
+        margin-top: 28px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
