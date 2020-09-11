@@ -7,7 +7,6 @@
 
 @media (max-width: 340px) {
     .footer__copyright{
-        color: #545454;
         font-size: 14px;
         line-height: 17px;
     }

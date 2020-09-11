@@ -11,7 +11,6 @@
 <body class="page">
     <header class="header">
         <img src="./images/logo.svg" alt="Логотипчик" class="header__logo">
-        <div class="header__line"></div>
     </header>
     <main class="content">
         <section class="profile">
@@ -20,72 +19,58 @@
                 <div class="profile__text">
                     <div class="profile__name">
                         <h1 class="profile__title">Дмитрий Сыендук</h1>
-                        <button class="profile__edit-button">
-                            <img src="./images/edit-button.svg" class="profile__edit-icon" alt="Кнопка редактирования">
-                        </button>
+                        <button type="button" class="profile__edit-button" aria-label="Edit"></button>
                     </div>
                     <p class="profile__subtitle">Единственная нормальная озвучка</p>
                 </div>
             </div>
-            <button class="profile__add-button">
-                <img src="./images/add-button.svg" class="profile__add-icon" alt="Кнопка добавления">
-            </button>
+            <button type="button" class="profile__add-button" aria-label="Add"></button>
         </section>
-        <ul class="elements">
-            <li class="elements__element">
-                <img src="./images/rick&morty.png" alt="Рик и Морти" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Рик и Морти</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка добавления">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/gravity-falls.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Гравити Фолз</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/pony.mov.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">PONY.MOV</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/the-pirates-in-an-adventure-with-scientists.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Пираты-бездельники</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/star-vs-the-forces-of-evil.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Стар против зла</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/solar-opposites.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Солнечные Противоположности</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
+        <section class="elements">
+            <ul class="elements__grid">
+                <li class="elements__element">
+                    <img src="./images/rick&morty.png" alt="Рик и Морти" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Рик и Морти</h2>
+                        <button type="button" class="elements__like-button" aria-label="Like"></button>
+                    </div>
+                </li>
+                <li class="elements__element">
+                    <img src="./images/gravity-falls.png" alt="Логотипчик" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Гравити Фолз</h2>
+                        <button type="button" class="elements__like-button" aria-label="Like"></button>
+                    </div>
+                </li>
+                <li class="elements__element">
+                    <img src="./images/pony.mov.png" alt="Логотипчик" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">PONY.MOV</h2>
+                        <button type="button" class="elements__like-button" aria-label="Like"></button>
+                    </div>
+                </li>
+                <li class="elements__element">
+                    <img src="./images/the-pirates-in-an-adventure-with-scientists.png" alt="Логотипчик" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Пираты-бездельники</h2>
+                        <button type="button" class="elements__like-button" aria-label="Like"></button>
+                    </div>
+                </li>
+                <li class="elements__element">
+                    <img src="./images/star-vs-the-forces-of-evil.png" alt="Логотипчик" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Стар против зла</h2>
+                        <button type="button" class="elements__like-button" aria-label="Like"></button>
+                    </div>
+                </li>
+                <li class="elements__element">
+                    <img src="./images/solar-opposites.png" alt="Логотипчик" class="elements__photo">
+                    <div class="elements__info">
+                        <h2 class="elements__title">Солнечные Противоположности</h2>
+                        <button type="button" class="elements__like-button" aria-label="Like"></button>
+                    </div>
+                </li>
+            </ul>
         </section>
     </main>
     <footer class="footer">
@@ -93,12 +78,12 @@
     </footer> 
     <div class="popup">
         <div class="popup__container">
-            <button class="popup__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
-            <form class="popup__form">
-                <p class="popup__title">Редактировать профиль</p>
-                <input type="text" class="popup__input popup__input_name" value="Дмитрий Сыендук" required>
-                <input type="text" class="popup__input popup__input_job" value="Единственная нормальная озвучка" required>
-                <button class="popup__save-button">Ок, я понял :з</button>
+            <button type="reset" class="popup__close-button" aria-label="Close"></button>
+            <form class="popup__form" name="Форма">
+                <h3 class="popup__title">Редактировать профиль</h3>
+                <input type="text" class="popup__input popup__input_text-name" name="Поле имя" value="Дмитрий Сыендук" placeholder="Как твое имя, чувак?" required>
+                <input type="text" class="popup__input popup__input_text-job" name="Поле должность" value="Единственная нормальная озвучка" placeholder="Ты кто по жизни?" required>
+                <button type="submit" class="popup__save-button">Ок, сохранить :з</button>
             </form>
         </div>
     </div>
