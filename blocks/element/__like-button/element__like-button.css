@@ -1,0 +1,25 @@
+.element__like-button{
+    margin: 0;
+    background: url(../../../images/like-button.svg) center no-repeat;
+    background-size: 100%;
+    border: 0;
+    padding: 0;
+    /* display: flex;
+    margin: auto; */
+    cursor: pointer;
+    transition: all 0.6s ease-in-out;
+    outline: none; 
+}
+
+.element__like-button:hover {
+    opacity: 0.6;
+}
+
+/* .element__like-button:active {
+    outline: none; 
+}
+
+.element__like-button:focus {
+    outline: none; 
+} */
+

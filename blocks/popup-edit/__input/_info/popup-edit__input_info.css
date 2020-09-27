@@ -1,0 +1,9 @@
+.popup-edit__input_info{
+    margin-bottom: 47px;
+}
+
+@media (max-width: 500px) {
+    .popup-edit__input_info{ 
+        margin-bottom: 36px;
+    }
+}

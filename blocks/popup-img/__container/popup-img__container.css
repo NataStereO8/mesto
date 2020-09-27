@@ -1,0 +1,13 @@
+.popup-img__container{
+    margin-top: 90px;
+    margin-bottom: 90px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;   
+    position: relative;  
+    display: flex;   
+    flex-direction: column;   
+    align-items: start;
+}
