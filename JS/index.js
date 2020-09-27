@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-let profile = document.querySelector('.profile');
-let profileEditButton = profile.querySelector('.profile__edit-button');
-let profileAddButton = profile.querySelector('.profile__add-button');
-let popup = document.querySelector('.popup');
-let popupForm = popup.querySelector('.popup__form');
-let popupCloseButton = popup.querySelector('.popup__close-button');
-let popupSaveButton = popup.querySelector('.popup__save-button');
-let nameInput = popupForm.querySelector('.popup__input_text_name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = popupForm.querySelector('.popup__input_text_job'); // Воспользуйтесь инструментом .querySelector()
-let profileName = profile.querySelector('.profile__title');
-let profileJob = profile.querySelector('.profile__subtitle');
-=======
 const initialCards = [
     {
         name: 'Солнечные противоположности',
@@ -37,7 +24,6 @@ const initialCards = [
         link: './images/rick&morty.png'
     }
 ];
->>>>>>> develop
 
 let templateElement = document.querySelector('.element_item').content; //переменная для шаблона
 let elementsList = document.querySelector('.elements__list'); //инициализируем список с карточками
@@ -56,13 +42,6 @@ let popupFormEdit = document.querySelector('.popup-edit__form');
 let popupImgPhoto = document.querySelector('.popup-img__img');
 let popupImgText = document.querySelector('.popup-img__text');
 
-<<<<<<< HEAD
-function openPopup() {
-    popup.classList.add('popup_opened');
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-
-=======
 
 
 function openPopupAdd() {
@@ -71,7 +50,6 @@ function openPopupAdd() {
 
 function closePopupAdd() {
     popupAdd.classList.remove('popup-add_opened');
->>>>>>> develop
 }
 
 function openPopupEdit() {
@@ -135,17 +113,6 @@ openImg();
 
 // Обработчик «отправки» формы, хотя пока
 // она никуда отправляться не будет
-<<<<<<< HEAD
-function formSubmitHandler (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                        // Так мы можем определить свою логику отправки.
-                        // О том, как это делать, расскажем позже.
-    
-    // Вставьте новые значения с помощью textContent
-    profileName.textContent = nameInput.value;
-    profileJob.textContent = jobInput.value;
-    popupSaveButton.onclick = closePopup();
-=======
 function formSubmitHandlerEdit (evt) {
     evt.preventDefault();
     // Находим поля формы в DOM
@@ -178,16 +145,10 @@ function formSubmitHandlerAdd (evt) {
         popupImg.classList.remove('popup-img_opened')});
     elementsList.prepend(htmlElement);
     console.log(htmlElement);
->>>>>>> develop
 }
 
 // Прикрепляем обработчик к форме:
 // он будет следить за событием “submit” - «отправка»
-<<<<<<< HEAD
-popupForm.addEventListener('submit', formSubmitHandler);
-profileEditButton.addEventListener('click', openPopup);
-popupCloseButton.addEventListener('click', closePopup);
-=======
 popupFormEdit.addEventListener('submit', formSubmitHandlerEdit);
 popupFormAdd.addEventListener('submit', formSubmitHandlerAdd);
 
@@ -199,4 +160,3 @@ saveButtonEdit.addEventListener('click', closePopupEdit);
 
 crossButtonAdd.addEventListener('click', closePopupAdd);
 saveButtonAdd.addEventListener('click', closePopupAdd);
->>>>>>> develop
