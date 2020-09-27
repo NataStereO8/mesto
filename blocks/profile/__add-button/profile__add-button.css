@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.6s ease-in-out;
+    cursor: pointer;
 }
 
 @media (max-width: 900px){

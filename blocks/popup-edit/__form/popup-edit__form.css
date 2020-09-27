@@ -1,0 +1,10 @@
+.popup-edit__form{
+    margin: 36px;
+}
+
+@media (max-width: 600px) {
+    .popup-edit__form{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

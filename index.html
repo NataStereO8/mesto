@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,14 @@
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
     <title>Уроки JS с Сыендуком</title>
 </head>
+
 <body class="page">
+
     <header class="header">
         <img src="./images/logo.svg" alt="Логотипчик" class="header__logo">
         <div class="header__line"></div>
     </header>
+
     <main class="content">
         <section class="profile">
             <div class="profile__profile-info">
@@ -31,77 +35,63 @@
                 <img src="./images/add-button.svg" class="profile__add-icon" alt="Кнопка добавления">
             </button>
         </section>
-        <ul class="elements">
-            <li class="elements__element">
-                <img src="./images/rick&morty.png" alt="Рик и Морти" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Рик и Морти</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка добавления">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/gravity-falls.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Гравити Фолз</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/pony.mov.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">PONY.MOV</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/the-pirates-in-an-adventure-with-scientists.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Пираты-бездельники</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/star-vs-the-forces-of-evil.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Стар против зла</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
-            <li class="elements__element">
-                <img src="./images/solar-opposites.png" alt="Логотипчик" class="elements__photo">
-                <div class="elements__info">
-                    <p class="elements__title">Солнечные Противоположности</p>
-                    <button class="elements__like-button">
-                        <img class="elements__like-icon" src="./images/like-button.svg" alt="Кнопка лайк">
-                    </button>
-                </div>
-            </li>
+
+        <section class="elements">
+            <ul class="elements__list"></ul>
         </section>
     </main>
+
     <footer class="footer">
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer> 
-    <div class="popup">
-        <div class="popup__container">
-            <button class="popup__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
-            <form class="popup__form">
-                <p class="popup__title">Редактировать профиль</p>
-                <input type="text" class="popup__input popup__input_name" value="Дмитрий Сыендук" required>
-                <input type="text" class="popup__input popup__input_job" value="Единственная нормальная озвучка" required>
-                <button class="popup__save-button">Ок, я понял :з</button>
+
+    <section class="popup-add">
+        <div class="popup-add__container">
+            <button class="popup-add__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+            <form class="popup-add__form">
+                <p class="popup-add__title">Добавить карточку</p>
+                <input type="text" class="popup-add__input popup-add__input_name" placeholder="Че за проект?" value="" required>
+                <input type="text" class="popup-add__input popup-add__input_info" placeholder="Ссылочку подкинь,бро" value="" required>
+                <button class="popup-add__save-button">Залить :з</button>
             </form>
         </div>
-    </div>
+    </section>
+
+    <section class="popup-edit">
+        <div class="popup-edit__container">
+            <button class="popup-edit__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+            <form class="popup-edit__form">
+                <p class="popup-edit__title">Редактировать профиль</p>
+                <input type="text" class="popup-edit__input popup-edit__input_name" value="Дмитрий Сыендук" required>
+                <input type="text" class="popup-edit__input popup-edit__input_info" value="Единственная нормальная озвучка" required>
+                <button class="popup-edit__save-button">Ок, я понял :з</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="popup-img">
+        <div class="popup-img__container">
+            <button class="popup-img__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+            <img src="./images/rick&morty.png" alt="большая пикча" class="popup-img__img">
+            <span class="popup-img__text">Рик и Морти</span>
+        </div>
+    </section>
+
+    <template class="element_item">
+        <li class="element">
+            <button class="element__photo-button"><img src="./images/rick&morty.png" alt="пикча" class="element__photo"></button>
+            <button class="element__trash-button">
+                <img class="element__trash-icon" src="./images/trash-button.svg" alt="Кнопка удаления">
+            </button>
+            <div class="element__info">
+                <span class="element__title">Рик и Морти</span>
+                <button class="element__like-button">
+                </button>
+            </div>
+        </li>
+    </template>
+
     <script src="./JS/index.js"></script> 
+
 </body>
 </html>

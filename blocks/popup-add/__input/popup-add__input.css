@@ -1,0 +1,26 @@
+.popup-add__input{
+    width: 100%;
+    border: none;
+    padding: 0;
+    outline: 0;
+    border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+    font-size: 14px;
+    padding:11px 0;
+    line-height: 17px; 
+    margin-bottom: 29px;
+}
+
+.popup-add__input:focus {
+    color: #000000;
+}
+
+
+.popup-add__input:active{
+    color: #000000;
+}
+
+@media (max-width: 500px) {
+    .popup-add__input{ 
+        font-size: 12px;
+    }
+}
