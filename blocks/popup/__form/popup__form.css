@@ -1,0 +1,11 @@
+.popup__form{
+    margin: 36px;
+    background-color: white;
+}
+
+@media (max-width: 600px) {
+    .popup__form{
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
