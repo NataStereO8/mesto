@@ -4,5 +4,15 @@
     font-weight: 900;
     line-height: 24px;
     max-width: 100%;
+<<<<<<< HEAD
     margin-bottom: 47px;
+=======
+    /* margin-bottom: 47px; */
+}
+
+@media (max-width: 500px) {
+    .popup__title{ 
+        font-size: 18px;
+    }
+>>>>>>> develop
 }

@@ -1,0 +1,16 @@
+.popup__text{
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+    color: white;
+    margin-top: 10px;
+    width: 100%;
+    text-align: left;
+}
+
+@media (max-width: 320px){
+    .popup__text{
+        margin-right: 40px;
+        margin-left: 40px;
+    }
+}

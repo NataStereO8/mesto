@@ -40,41 +40,43 @@
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer> 
 
-    <section class="popup-add">
-        <div class="popup-add__container">
-            <button class="popup-add__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
-            <form class="popup-add__form">
-                <p class="popup-add__title">Добавить карточку</p>
-                <input type="text" class="popup-add__input popup-add__input_name" placeholder="Че за проект?" value="" required>
-                <input type="text" class="popup-add__input popup-add__input_info" placeholder="Ссылочку подкинь,бро" value="" required>
-                <button class="popup-add__save-button">Залить :з</button>
+    <section class="popup popup_add">
+        <div class="popup__container popup__container_add">
+            <button class="popup__cross-button popup__cross-button_add"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+            <form class="popup__form popup__form_add">
+                <p class="popup__title popup-add__title">Добавить карточку</p>
+                <input type="text" class="popup__input popup__input_name popup__input_name_add" placeholder="Че за проект?" value="" required>
+                <input type="text" class="popup__input popup__input_info popup__input_info_add" placeholder="Ссылочку подкинь, бро!" value="" required>
+                <button class="popup__save-button popup__save-button_add">Залить :з</button>
             </form>
         </div>
     </section>
 
-    <section class="popup-edit">
-        <div class="popup-edit__container">
-            <button class="popup-edit__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
-            <form class="popup-edit__form">
-                <p class="popup-edit__title">Редактировать профиль</p>
-                <input type="text" class="popup-edit__input popup-edit__input_name" value="Дмитрий Сыендук" required>
-                <input type="text" class="popup-edit__input popup-edit__input_info" value="Единственная нормальная озвучка" required>
-                <button class="popup-edit__save-button">Ок, я понял :з</button>
+    <section class="popup popup_edit">
+        <div class="popup__container popup__container_edit">
+            <button class="popup__cross-button popup__cross-button_edit"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+            <form class="popup__form popup__form_edit">
+                <p class="popup__title popup__title_edit">Редактировать профиль</p>
+                <input type="text" class="popup__input popup__input_name  popup__input_name_edit" value="Дмитрий Сыендук" required>
+                <input type="text" class="popup__input popup__input_info  popup__input_info_edit" value="Единственная нормальная озвучка" required>
+                <button class="popup__save-button popup__save-button_edit">Ок, я понял :з</button>
             </form>
         </div>
     </section>
 
-    <section class="popup-img">
-        <div class="popup-img__container">
-            <button class="popup-img__cross-button"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
-            <img src="./images/rick&morty.png" alt="большая пикча" class="popup-img__img">
-            <span class="popup-img__text">Рик и Морти</span>
+    <section class=" popup popup_img">
+        <div class="popup__container popup__container_img">
+            <div class="popup__img">
+                <button class="popup__cross-button popup__cross-button_img"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+                <img src="./images/rick&morty.png" alt="большая пикча" class="popup__pic">
+            </div>
+            <span class="popup__text">Рик и Морти</span>
         </div>
     </section>
 
     <template class="element_item">
         <li class="element">
-            <button class="element__photo-button"><img src="./images/rick&morty.png" alt="пикча" class="element__photo"></button>
+            <button class="element__photo-button"><img src="" alt="" class="element__photo"></button>
             <button class="element__trash-button">
                 <img class="element__trash-icon" src="./images/trash-button.svg" alt="Кнопка удаления">
             </button>
