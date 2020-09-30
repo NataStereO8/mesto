@@ -143,8 +143,3 @@ closeAddButton.addEventListener('click', function close() {
 closeEditButton.addEventListener('click', function close() {
     closePopup(popupEdit);});
 
-<<<<<<< HEAD
-crossButtonAdd.addEventListener('click', closePopupAdd);
-saveButtonAdd.addEventListener('click', closePopupAdd);
-=======
->>>>>>> develop
