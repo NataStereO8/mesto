@@ -61,9 +61,6 @@ const profileInfoEdit = document.querySelector('.profile__subtitle');
 const nameInputAdd = popupFormAdd.querySelector('.popup__input_name_add'); 
 const infoInputAdd = popupFormAdd.querySelector('.popup__input_info_add');
 
-
-
-
 function openPopup(popupElement) {
     popupElement.classList.add('popup_opened');
 }
@@ -103,32 +100,29 @@ function renderCard(card){
     elementsList.append(createCard(card));
 }
 
-function AddCard(card){
+function addCard(card){
     elementsList.prepend(createCard(card));
 }
 
 render();
 
-
-function handlFormEditSubmit(evt) {
+function handleFormEditSubmit(evt) {
     evt.preventDefault();  
     profileNameEdit.textContent = nameInputEdit.value;
     profileInfoEdit.textContent = infoInputEdit.value;
     closePopup(popupEdit);
 }
 
-function handlFormAddSubmit(evt) {
+function handleFormAddSubmit(evt) {
     evt.preventDefault();
     card.name = nameInputAdd.value;
     card.link = infoInputAdd.value;
-    createCard(card);
-    AddCard(card);
+    addCard(card);
     closePopup(popupAdd);
 }
 
-
-popupFormEdit.addEventListener('submit', handlFormEditSubmit);
-popupFormAdd.addEventListener('submit', handlFormAddSubmit);
+popupFormEdit.addEventListener('submit', handleFormEditSubmit);
+popupFormAdd.addEventListener('submit', handleFormAddSubmit);
 
 
 openAddButton.addEventListener('click', function open() {
