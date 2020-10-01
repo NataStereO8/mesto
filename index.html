@@ -14,7 +14,6 @@
 
     <header class="header">
         <img src="./images/logo.svg" alt="Логотипчик" class="header__logo">
-        <div class="header__line"></div>
     </header>
 
     <main class="content">
@@ -24,16 +23,12 @@
                 <div class="profile__text">
                     <div class="profile__name">
                         <h1 class="profile__title">Дмитрий Сыендук</h1>
-                        <button class="profile__edit-button">
-                            <img src="./images/edit-button.svg" class="profile__edit-icon" alt="Кнопка редактирования">
-                        </button>
+                        <button type="button" class="profile__edit-button" aria-label="Edit"></button>
                     </div>
                     <p class="profile__subtitle">Единственная нормальная озвучка</p>
                 </div>
             </div>
-            <button class="profile__add-button">
-                <img src="./images/add-button.svg" class="profile__add-icon" alt="Кнопка добавления">
-            </button>
+            <button type="button" class="profile__add-button" aria-label="Add"></button>
         </section>
 
         <section class="elements">
@@ -79,12 +74,10 @@
         </div>
     </section>
 
-    <template class="element_item">
+    <template class="card-element">
         <li class="element">
-            <button class="element__photo-button"><img src="" alt="" class="element__photo"></button>
-            <button class="element__trash-button">
-                <img class="element__trash-icon" src="./images/trash-button.svg" alt="Кнопка удаления">
-            </button>
+            <div class="element__container"><img src="https://yt3.ggpht.com/a/AATXAJyev2gUNUqK337r8KR50U3Bj-Harw5eu0dRTMOeJA=s900-c-k-c0xffffffff-no-rj-mo" alt="обложка проекта" class="element__photo"></div>
+            <button class="element__trash-button"></button>
             <div class="element__info">
                 <span class="element__title">Рик и Морти</span>
                 <button class="element__like-button">
