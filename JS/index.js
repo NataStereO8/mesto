@@ -30,7 +30,7 @@ let card = [{
     link: ''
 }]
 
-const templateElement = document.querySelector('.element_item').content;
+const templateElement = document.querySelector('.card-element').content;
 const elementsList = document.querySelector('.elements__list'); 
 
 const openEditButton = document.querySelector('.profile__edit-button');
