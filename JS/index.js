@@ -25,28 +25,25 @@ const initialCards = [
     }
 ];
 
-let card = [{
-    name: '',
-    link: ''
-}]
+
 
 const templateElement = document.querySelector('.card-element').content;
 const elementsList = document.querySelector('.elements__list'); 
 
-const openEditButton = document.querySelector('.profile__edit-button');
-const openAddButton = document.querySelector('.profile__add-button');
+const openEditFormButton = document.querySelector('.profile__edit-button');
+const openAddFormButton = document.querySelector('.profile__add-button');
 
 const popup = document.querySelector('.popup');
 const popupImg = document.querySelector('.popup_img');
 const popupAdd = document.querySelector('.popup_add');
 const popupEdit = document.querySelector('.popup_edit');
 
-const closeAddButton = document.querySelector('.popup__cross-button_add');
-const closeEditButton = document.querySelector('.popup__cross-button_edit');
+const closeAddFormButton = document.querySelector('.popup__cross-button_add');
+const closeEditFormButton = document.querySelector('.popup__cross-button_edit');
 const closeImgButton = document.querySelector('.popup__cross-button_img');
 
-const saveAddButton = document.querySelector('.popup__save-button_add');
-const saveEditButton = document.querySelector('.popup__save-button_edit');
+// const saveAddButton = document.querySelector('.popup__save-button_add');
+// const saveEditButton = document.querySelector('.popup__save-button_edit');
 
 const popupForm = document.querySelector('.popup__form');
 const popupFormAdd = document.querySelector('.popup__form_add');
@@ -115,6 +112,10 @@ function handleFormEditSubmit(evt) {
 
 function handleFormAddSubmit(evt) {
     evt.preventDefault();
+    const card = [{
+        name: '',
+        link: ''
+    }];
     card.name = nameInputAdd.value;
     card.link = infoInputAdd.value;
     addCard(card);
@@ -125,15 +126,15 @@ popupFormEdit.addEventListener('submit', handleFormEditSubmit);
 popupFormAdd.addEventListener('submit', handleFormAddSubmit);
 
 
-openAddButton.addEventListener('click', function open() {
+openAddFormButton.addEventListener('click', function open() {
     openPopup(popupAdd);});
 
-openEditButton.addEventListener('click', function open() {
+openEditFormButton.addEventListener('click', function open() {
     openPopup(popupEdit);});
 
-closeAddButton.addEventListener('click', function close() {
+closeAddFormButton.addEventListener('click', function close() {
     closePopup(popupAdd);});
     
-closeEditButton.addEventListener('click', function close() {
+closeEditFormButton.addEventListener('click', function close() {
     closePopup(popupEdit);});
 

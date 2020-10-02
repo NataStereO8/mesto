@@ -5,13 +5,6 @@
     outline: 0;
     border-bottom: 1px solid rgb(0, 0, 0, 0.2);
     font-size: 14px;
-<<<<<<< HEAD
-    padding:11px 0;
-    line-height: 17px; 
-    margin-bottom: 29px;
-}
-
-=======
     padding: 0 0 11px 0;
     line-height: 17px; 
     margin-bottom: 29px;
@@ -27,4 +20,3 @@
         font-size: 12px;
     }
 }
->>>>>>> develop
