@@ -1,34 +1,32 @@
-const docValid = {
+const params = {
     formSelector: '.popup__form', //выбранная форма
     inputSelector: '.popup__input', //выбранный инпут
     submitButtonSelector: '.popup__save-button', //выбранная кнопка на форме
     inactiveButtonClass: 'popup__save-button_disabled', //неактивная кнопка на форме
     inputErrorClassStyle: 'popup__input_error', //внешний вид невалидных полей
-    inputErrorClass: '.popup__error', //текст ошибки
     errorClass: 'popup__error_visible'  //флаг на текст ошибки 
     // errorLabel: '.popup__label'
 }
 
-function showInputError(formElement, inputElement, errorMessage) {
+function showInputError(formElement, inputElement, errorMessage, params) {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-    console.log(`#${inputElement.id}-error`);
-    inputElement.classList.add(docValid.inputErrorClassStyle);
+    inputElement.classList.add(params.inputErrorClassStyle);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add(docValid.errorClass);
+    errorElement.classList.add(params.errorClass);
 };
 
-function hideInputError(formElement, inputElement) {
+function hideInputError(formElement, inputElement, params) {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-    inputElement.classList.remove(docValid.inputErrorClassStyle);
-    errorElement.classList.remove(docValid.errorClass);
+    inputElement.classList.remove(params.inputErrorClassStyle);
+    errorElement.classList.remove(params.errorClass);
     errorElement.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement) => {
+const checkInputValidity = (formElement, inputElement, params) => {
     if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement, inputElement.validationMessage);
+        showInputError(formElement, inputElement, inputElement.validationMessage, params);
     } else {
-        hideInputError(formElement, inputElement);
+        hideInputError(formElement, inputElement, params);
     }
 };
 
@@ -38,33 +36,33 @@ const hasInvalidInput = (inputList) => {
     });
 };
 
-function toggleButtonState(inputList, buttonElement){
+function toggleButtonState(inputList, buttonElement, params){
     if (hasInvalidInput(inputList)) {
-        buttonElement.classList.add(docValid.inactiveButtonClass);
+        buttonElement.classList.add(params.inactiveButtonClass);
         buttonElement.setAttribute("disabled", true);
     } else {
-        buttonElement.classList.remove(docValid.inactiveButtonClass);
+        buttonElement.classList.remove(params.inactiveButtonClass);
         buttonElement.removeAttribute("disabled");
     }
 }; 
 
-function setEventListeners(formElement){
-    const inputList = Array.from(formElement.querySelectorAll(docValid.inputSelector));
-    const buttonElement = formElement.querySelector(docValid.submitButtonSelector);
-    toggleButtonState(inputList, buttonElement);
+function setEventListeners(formElement, params){
+    const inputList = Array.from(formElement.querySelectorAll(params.inputSelector));
+    const buttonElement = formElement.querySelector(params.submitButtonSelector);
+    toggleButtonState(inputList, buttonElement, params);
     inputList.forEach((inputElement) => {
         inputElement.addEventListener('input', function () {
-            checkInputValidity(formElement, inputElement);
-            toggleButtonState(inputList, buttonElement);
+            checkInputValidity(formElement, inputElement, params);
+            toggleButtonState(inputList, buttonElement, params);
         });
     });
     // console.log(inputList, buttonElement);
 }; 
 
-function enableValidation(docValid){
-    const formList = Array.from(document.querySelectorAll(docValid.formSelector));
+function enableValidation(params){
+    const formList = Array.from(document.querySelectorAll(params.formSelector));
     formList.forEach((formElement) => {
-        setEventListeners(formElement);
+        setEventListeners(formElement, params);
         formElement.addEventListener('submit', function (evt) {
             evt.preventDefault();          
         });
@@ -72,4 +70,4 @@ function enableValidation(docValid){
     // console.log(formList);
 }
 
-enableValidation(docValid); 
+enableValidation(params); 
