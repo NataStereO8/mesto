@@ -40,13 +40,20 @@
         <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer> 
 
-    <section class="popup popup_add">
+    <section class="popup popup_add" name="popup">
         <div class="popup__container popup__container_add">
-            <button class="popup__cross-button popup__cross-button_add"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
-            <form class="popup__form popup__form_add">
+            <button class="popup__close-button popup__close-button_add"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+            <form name="add-form" class="popup__form popup__form_add" novalidate>
                 <p class="popup__title popup-add__title">Добавить карточку</p>
-                <input type="text" class="popup__input popup__input_name popup__input_name_add" placeholder="Че за проект?" value="" required>
-                <input type="text" class="popup__input popup__input_info popup__input_info_add" placeholder="Ссылочку подкинь, бро!" value="" required>
+                <label class="popup__label">
+                    <input type="text" class="popup__input popup__input_name popup__input_name_add" 
+                    <input type="text" class="popup__input popup__input_name  popup__input_name_edit" id="popup__input_name" placeholder="Че за проект?" value="" minlength="2" maxlength="30" required>
+                    <span class="popup__error" id='popup__input_name-error'></span>
+                </label>
+                <label class="popup__label">
+                    <input type="url" class="popup__input popup__input_info  popup__input_info_add" id="popup__input_info" placeholder="Ссылочку подкинь, бро!" value="" required>
+                    <span class="popup__error" id='popup__input_info-error'></span>
+                </label>
                 <button class="popup__save-button popup__save-button_add">Залить :з</button>
             </form>
         </div>
@@ -54,11 +61,17 @@
 
     <section class="popup popup_edit">
         <div class="popup__container popup__container_edit">
-            <button class="popup__cross-button popup__cross-button_edit"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
-            <form class="popup__form popup__form_edit">
+            <button class="popup__close-button popup__close-button_edit"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+            <form name="edit-form" class="popup__form popup__form_edit" novalidate>
                 <p class="popup__title popup__title_edit">Редактировать профиль</p>
-                <input type="text" class="popup__input popup__input_name  popup__input_name_edit" value="Дмитрий Сыендук" required>
-                <input type="text" class="popup__input popup__input_info  popup__input_info_edit" value="Единственная нормальная озвучка" required>
+                <labev class="popup__label">
+                    <input type="text" class="popup__input popup__input_name  popup__input_name_edit" id="popup__input_name" placeholder="Ты кто такой?" value="Дмитрий Сыендук" minlength="2" maxlength="40" required>
+                    <span class="popup__error" id='popup__input_name-error'></p>
+                </labev>
+                <labev class="popup__label">
+                    <input type="text" class="popup__input popup__input_info  popup__input_info_edit" id="popup__input_info" placeholder="Че кого, су***ы?" value="Единственная нормальная озвучка" minlength="2" maxlength="200" required>
+                    <span class="popup__error" id='popup__input_info-error'></p>
+                </labev>
                 <button class="popup__save-button popup__save-button_edit">Ок, я понял :з</button>
             </form>
         </div>
@@ -67,7 +80,7 @@
     <section class=" popup popup_img">
         <div class="popup__container popup__container_img">
             <div class="popup__img">
-                <button class="popup__cross-button popup__cross-button_img"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
+                <button class="popup__close-button popup__close-button_img"><img src="./images/close-button.svg" alt="Закрывающая кнопка"></button>
                 <img src="./images/rick&morty.png" alt="большая пикча" class="popup__pic">
             </div>
             <span class="popup__text">Рик и Морти</span>
@@ -86,7 +99,8 @@
         </li>
     </template>
 
-    <script src="./JS/index.js"></script> 
+    <script src="./js/validate.js"></script>
+    <script src="./js/index.js"></script>  
 
 </body>
 </html>
