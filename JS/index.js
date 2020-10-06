@@ -31,7 +31,7 @@ const elementsList = document.querySelector('.elements__list');
 const openEditFormButton = document.querySelector('.profile__edit-button');
 const openAddFormButton = document.querySelector('.profile__add-button');
 
-const popup = document.querySelector('.popup');
+const popup = document.querySelectorAll('.popup');
 const popupImg = document.querySelector('.popup_img');
 const popupAdd = document.querySelector('.popup_add');
 const popupEdit = document.querySelector('.popup_edit');
@@ -59,15 +59,12 @@ const img = 'img';
 
 function openPopupForm(popupElement) {
     popupElement.classList.add('popup_opened');
+    document.addEventListener('keydown', closeOnEsc);
 }
 
 function closePopupForm(popupElement) {
     popupElement.classList.remove('popup_opened');
-}
-
-function render(){
-    elementsList.innerHTML = '';
-    initialCards.forEach(renderCard);
+    document.removeEventListener('keydown', closeOnEsc);
 }
 
 function cleanInputs(form) {
@@ -77,15 +74,40 @@ function cleanInputs(form) {
     });
 };
 
-function closeOnEsc(event, popup) {
+// const closeOnEsc = (event) => {
+//     const popupList = Array.from(document.querySelectorAll('.popup'));
+//     popupList.forEach((element) => {
+//         if (element.classList.contains('popup_opened')) {
+//             if (event.key === "Escape") {
+//                 closePopupForm(element);
+//             };
+//         };
+//     });
+// }
+
+const closeOnEsc = (event) => {
     if (event.key === "Escape") {
-        closePopupForm(popup);
-};}
+        popup.forEach((element) =>{
+            if (element.classList.contains('popup_opened')) {
+                closePopupForm(element);
+            };
+        });
+    };
+}
 
 function closeOnOverlay(evt,popup) {
     if (evt.target.classList.contains('popup_opened')) {
         closePopupForm(popup);
     }; 
+}
+
+function setListnersToCloseByOverlay() {
+    const popupList = Array.from(document.querySelectorAll('.popup'));
+    popupList.forEach((element) => {
+        element.addEventListener('mousedown', function(evt) {
+            closeOnOverlay(evt,element);
+            });
+        });
 }
 
 function createCard(card){
@@ -101,7 +123,6 @@ function createCard(card){
         popupPic.setAttribute("src", card.link);
         popupText.textContent = card.name;
         openPopupForm(popupImg);
-        setListnersToCloseByEsc();
     });
     elementLike.addEventListener('click', function liked() {
         elementLike.classList.toggle('element__like-button_active')});
@@ -149,57 +170,24 @@ popupFormAdd.addEventListener('submit', handleFormAddSubmit);
 openAddFormButton.addEventListener('click', function open() {
     cleanInputs(popupFormAdd);
     openPopupForm(popupAdd);
-    setListnersToCloseByEsc();
 });
     
-
 openEditFormButton.addEventListener('click', function open() {
     nameInputEdit.value = profileNameEdit.textContent;
     infoInputEdit.value = profileInfoEdit.textContent;
     openPopupForm(popupEdit);
-    setListnersToCloseByEsc();
 });
-
 
 closeAddFormButton.addEventListener('click', function close() {
     closePopupForm(popupAdd);
-    setListnersToCloseByEsc();
 });
     
 closeEditFormButton.addEventListener('click', function close() {
     closePopupForm(popupEdit);
-    setListnersToCloseByEsc();
 });
-
 
 closeImgButton.addEventListener('click', function close() {
     closePopupForm(popupImg);
-    setListnersToCloseByEsc();
 });
-
-
-function setListnersToCloseByOverlay() {
-    const popupList = Array.from(document.querySelectorAll('.popup'));
-    popupList.forEach((element) => {
-        element.addEventListener('mousedown', function(evt) {
-            closeOnOverlay(evt,element);
-            });
-        });
-}
-
-function setListnersToCloseByEsc() {
-    const popupList = Array.from(document.querySelectorAll('.popup'));
-    popupList.forEach((element) => {
-        if (element.classList.contains('popup_opened')) {
-            document.addEventListener('keydown', function(event) {
-                closeOnEsc(event, element);
-            });
-        } else {
-            document.removeEventListener('keydown', function(event) {
-                closeOnEsc(event, element);
-            });
-        };
-    });
-}
 
 setListnersToCloseByOverlay();
