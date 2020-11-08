@@ -46,7 +46,7 @@
             <form name="add-form" class="popup__form popup__form_add" novalidate>
                 <p class="popup__title popup-add__title">Добавить карточку</p>
                 <label class="popup__label">
-                    <input type="text" class="popup__input popup__input_name  popup__input_name_edit" id="popup__input_name_1" placeholder="Че за проект?" value="" minlength="2" maxlength="30" required>
+                    <input type="text" class="popup__input popup__input_name  popup__input_name_add" id="popup__input_name_1" placeholder="Че за проект?" value="" minlength="2" maxlength="30" required>
                     <span class="popup__error" id='popup__input_name_1-error'></span>
                 </label>
                 <label class="popup__label">
@@ -88,7 +88,9 @@
 
     <template class="card-element">
         <li class="element">
-            <div class="element__container"><img src="https://yt3.ggpht.com/a/AATXAJyev2gUNUqK337r8KR50U3Bj-Harw5eu0dRTMOeJA=s900-c-k-c0xffffffff-no-rj-mo" alt="обложка проекта" class="element__photo"></div>
+            <div class="element__container">
+                <img src="https://yt3.ggpht.com/a/AATXAJyev2gUNUqK337r8KR50U3Bj-Harw5eu0dRTMOeJA=s900-c-k-c0xffffffff-no-rj-mo" alt="обложка проекта" class="element__photo">
+            </div>
             <button class="element__trash-button"></button>
             <div class="element__info">
                 <span class="element__title">Рик и Морти</span>
@@ -98,8 +100,10 @@
         </li>
     </template>
 
-    <script src="./JS/validate.js"></script>
-    <script src="./JS/index.js"></script>  
+    <script src="./scripts/config.js" type="module" defer></script>  
+    <script src="./scripts/card.js" type="module" defer></script>  
+    <script src="./scripts/formValidator.js" type="module" defer></script>  
+    <script src="./scripts/index.js" type="module" defer></script>
 
 </body>
 </html>
