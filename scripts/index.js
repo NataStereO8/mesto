@@ -8,37 +8,38 @@ const formAddValidator = new FormValidator(config.formAddSelector, config);
 
 const closeOnEsc = (event) => {
     if (event.key === "Escape") {
-        const popupList = Array.from(document.querySelectorAll('.popup'));
-        popupList.forEach((element) => {
-            if (element.classList.contains('popup_opened')) {
-                closePopupForm(element);
-            };
-        });
+        const openedPopup = document.querySelector('.popup_opened')
+        closePopup(openedPopup)
     };
 }
 
-function openPopupForm(popupElement) {
+function openPopup(popupElement) {
     popupElement.classList.add('popup_opened');
     document.addEventListener('keydown', closeOnEsc);
 }
 
-function closePopupForm(popupElement) {
+function closePopup(popupElement) {
     popupElement.classList.remove('popup_opened');
     document.removeEventListener('keydown', closeOnEsc);
 }
 
 function closeOnOverlay(evt,popup) {
     if (evt.target.classList.contains('popup_opened')) {
-        closePopupForm(popup);
+        closePopup(popup);
     }; 
 }
 
-function cleanInputs(form) {
-    const inputList = Array.from(form.querySelectorAll(config.inputSelector));
-    inputList.forEach((inputElement) => {
-        inputElement.value = '';
-    });
-};
+function createCard(item) {
+    const card = new Card(item, '.card-element', handleImageClick);
+    const cardElement = card.generateCard();
+    return cardElement;
+}
+
+function handleImageClick(name, link) {
+    config.popupPic.setAttribute("src", link);
+    config.popupText.textContent = name;
+    openPopup(config.popupImg);
+}
 
 function setListnersToCloseByOverlay() {
     const popupList = Array.from(document.querySelectorAll('.popup'));
@@ -51,17 +52,16 @@ function setListnersToCloseByOverlay() {
 
 function handleFormAddSubmit(evt) {
     evt.preventDefault();
-    const item = [{
+    const item = {
         name: config.nameInputAdd.value,
         link: config.infoInputAdd.value
-    }];
-    console.log(item);
+    };
     item.name = config.nameInputAdd.value;
     item.link = config.infoInputAdd.value;
-    const card = new Card(item, '.card-element');
+    const card = new Card(item, '.card-element', handleImageClick);
     const cardElement = card.generateCard();
     config.elementsList.prepend(cardElement);
-    closePopupForm(config.popupAdd);
+    closePopup(config.popupAdd);
 }
 
 function handleFormEditSubmit(evt) {
@@ -69,16 +69,15 @@ function handleFormEditSubmit(evt) {
     config.profileNameEdit.textContent = config.nameInputEdit.value;
     config.profileInfoEdit.textContent = config.infoInputEdit.value;
     console.log(config.profileNameEdit.textContent);
-    closePopupForm(config.popupEdit);
+    closePopup(config.popupEdit);
 }
 
 function render(){
     initialCards.forEach((item) => {
-        const card = new Card(item, '.card-element');
-        const cardElement = card.generateCard();
-        config.elementsList.append(cardElement);
+        config.elementsList.append(createCard(item));
     });
 }
+
 render();
 
 setListnersToCloseByOverlay();
@@ -90,17 +89,22 @@ config.popupFormEdit.addEventListener('submit', handleFormEditSubmit);
 config.popupFormAdd.addEventListener('submit', handleFormAddSubmit);
 
 
-config.openAddFormButton.addEventListener('click', function open() {
-    cleanInputs(config.popupFormAdd);
-    openPopupForm(config.popupAdd);});
+config.openAddFormButton.addEventListener('click', function () {
+    config.popupFormAdd.reset();
+    openPopup(config.popupAdd);});
 
-config.openEditFormButton.addEventListener('click', function open() {
-    openPopupForm(config.popupEdit);});
+config.openEditFormButton.addEventListener('click', function () {
+    openPopup(config.popupEdit);});
 
-config.closeAddFormButton.addEventListener('click', function close() {
-    closePopupForm(config.popupAdd);});
+config.closeAddFormButton.addEventListener('click', function () {
+    closePopup(config.popupAdd);});
     
-config.closeEditFormButton.addEventListener('click', function close() {
-    closePopupForm(config.popupEdit);});
+config.closeEditFormButton.addEventListener('click', function () {
+    closePopup(config.popupEdit);});
+
+config.closeImgButton.addEventListener('click', function () {
+    closePopup(config.popupImg);});
+
+
 
 

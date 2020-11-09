@@ -1,4 +1,4 @@
-import Card from './card.js';
+
 import {initialCards, config} from './config.js';
 
 class FormValidator {
