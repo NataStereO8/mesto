@@ -1,7 +1,7 @@
 
-import {initialCards, config} from './config.js';
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
+import {initialCards, config} from '../config.js';
+import Card from '../Card.js';
+import FormValidator from '../FormValidator.js';
 
 const formEditValidator = new FormValidator(config.formEditSelector, config);
 const formAddValidator = new FormValidator(config.formAddSelector, config);
