@@ -32,17 +32,17 @@ export const config = {
     openEditFormButton: document.querySelector('.profile__edit-button'),
     openAddFormButton: document.querySelector('.profile__add-button'),
 
-    popup: document.querySelectorAll('.popup'),
+    popups: document.querySelectorAll('.popup'),
     popupImg: document.querySelector('.popup_img'),
     popupAdd: document.querySelector('.popup_add'),
     popupEdit: document.querySelector('.popup_edit'),
 
-    popupContainer: document.querySelectorAll('.popup_container'),
+    popupContainers: document.querySelectorAll('.popup_container'),
     closeAddFormButton: document.querySelector('.popup__close-button_add'),
     closeEditFormButton: document.querySelector('.popup__close-button_edit'),
     closeImgButton: document.querySelector('.popup__close-button_img'),
 
-    popupForm: document.querySelectorAll('.popup__form'),
+    popupForms: document.querySelectorAll('.popup__form'),
     popupFormAdd: document.querySelector('.popup__form_add'),
     popupFormEdit: document.querySelector('.popup__form_edit'),
     popupPic: document.querySelector('.popup__pic'),

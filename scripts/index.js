@@ -1,7 +1,7 @@
 
 import {initialCards, config} from './config.js';
-import Card from './card.js';
-import FormValidator from './formValidator.js';
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
 
 const formEditValidator = new FormValidator(config.formEditSelector, config);
 const formAddValidator = new FormValidator(config.formAddSelector, config);
@@ -23,9 +23,9 @@ function closePopup(popupElement) {
     document.removeEventListener('keydown', closeOnEsc);
 }
 
-function closeOnOverlay(evt,popup) {
+function closeOnOverlay(evt,popups) {
     if (evt.target.classList.contains('popup_opened')) {
-        closePopup(popup);
+        closePopup(popups);
     }; 
 }
 
@@ -42,7 +42,7 @@ function handleImageClick(name, link) {
 }
 
 function setListnersToCloseByOverlay() {
-    const popupList = Array.from(document.querySelectorAll('.popup'));
+    const popupList = Array.from(config.popups);
     popupList.forEach((element) => {
         element.addEventListener('mousedown', function(evt) {
             closeOnOverlay(evt,element);
@@ -56,11 +56,7 @@ function handleFormAddSubmit(evt) {
         name: config.nameInputAdd.value,
         link: config.infoInputAdd.value
     };
-    item.name = config.nameInputAdd.value;
-    item.link = config.infoInputAdd.value;
-    const card = new Card(item, '.card-element', handleImageClick);
-    const cardElement = card.generateCard();
-    config.elementsList.prepend(cardElement);
+    config.elementsList.prepend(createCard(item));
     closePopup(config.popupAdd);
 }
 
@@ -68,7 +64,6 @@ function handleFormEditSubmit(evt) {
     evt.preventDefault();  
     config.profileNameEdit.textContent = config.nameInputEdit.value;
     config.profileInfoEdit.textContent = config.infoInputEdit.value;
-    console.log(config.profileNameEdit.textContent);
     closePopup(config.popupEdit);
 }
 

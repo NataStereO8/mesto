@@ -1,6 +1,4 @@
 
-import {initialCards, config} from './config.js';
-
 class FormValidator {
     constructor(formSelector, config) {
         this._formSelector = formSelector;

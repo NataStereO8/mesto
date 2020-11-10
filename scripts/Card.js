@@ -1,4 +1,3 @@
-import {initialCards, config} from './config.js';
 
 class Card {
     constructor(data, selector, handleImageClick ) {
@@ -16,12 +15,6 @@ class Card {
     _like(){
         this._element.querySelector('.element__like-button').classList.toggle('element__like-button_active');
     }
-
-    _closeOnEsc(event) {
-        if (event.key === "Escape") {
-            config.popupImg.classList.remove('popup_opened');
-        }
-    }
     
     _openImg(){
         this._handleImageClick(this._name, this._link);
@@ -30,7 +23,6 @@ class Card {
     _setEventListeners() {
         this._element.querySelector('.element__trash-button').addEventListener('click', ()=>this._deleteElem());
         this._element.querySelector('.element__like-button').addEventListener('click', ()=>this._like());
-        this._element.querySelector('.element__photo').addEventListener('click', ()=>this._openImg());
         this._elementPhoto.addEventListener('click', ()=>this._openImg());
     }
 
