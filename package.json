@@ -1,0 +1,19 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "This project makes it possible to view information about the places visited by the traveler. But we slightly modernized the project and provided you with information about the magical worlds voiced by Sndk.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NataStereO8/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NataStereO8/mesto/issues"
+  },
+  "homepage": "https://github.com/NataStereO8/mesto#readme"
+}

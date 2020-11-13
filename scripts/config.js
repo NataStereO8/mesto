@@ -69,4 +69,3 @@ export const config = {
     formEditSelector: '.popup_edit',
     formAddSelector: '.popup_add'
 }
-

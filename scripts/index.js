@@ -1,104 +1,155 @@
 
-import {initialCards, config} from '../config.js';
-import Card from '../Card.js';
-import FormValidator from '../FormValidator.js';
+import {initialCards, config} from './config.js';
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+import Section from './Section.js';
+import UserInfo from './UserInfo.js';
+import PopupWithForm from './PopupWithForm.js';
+import PopupWithImage from './PopupWithImage.js';
+
+console.log(initialCards);
 
 const formEditValidator = new FormValidator(config.formEditSelector, config);
 const formAddValidator = new FormValidator(config.formAddSelector, config);
 
-const closeOnEsc = (event) => {
-    if (event.key === "Escape") {
-        const openedPopup = document.querySelector('.popup_opened')
-        closePopup(openedPopup)
-    };
-}
-
-function openPopup(popupElement) {
-    popupElement.classList.add('popup_opened');
-    document.addEventListener('keydown', closeOnEsc);
-}
-
-function closePopup(popupElement) {
-    popupElement.classList.remove('popup_opened');
-    document.removeEventListener('keydown', closeOnEsc);
-}
-
-function closeOnOverlay(evt,popups) {
-    if (evt.target.classList.contains('popup_opened')) {
-        closePopup(popups);
-    }; 
-}
-
-function createCard(item) {
-    const card = new Card(item, '.card-element', handleImageClick);
-    const cardElement = card.generateCard();
-    return cardElement;
-}
-
-function handleImageClick(name, link) {
-    config.popupPic.setAttribute("src", link);
-    config.popupText.textContent = name;
-    openPopup(config.popupImg);
-}
-
-function setListnersToCloseByOverlay() {
-    const popupList = Array.from(config.popups);
-    popupList.forEach((element) => {
-        element.addEventListener('mousedown', function(evt) {
-            closeOnOverlay(evt,element);
-            });
-        });
-}
-
-function handleFormAddSubmit(evt) {
-    evt.preventDefault();
-    const item = {
-        name: config.nameInputAdd.value,
-        link: config.infoInputAdd.value
-    };
-    config.elementsList.prepend(createCard(item));
-    closePopup(config.popupAdd);
-}
-
-function handleFormEditSubmit(evt) {
-    evt.preventDefault();  
-    config.profileNameEdit.textContent = config.nameInputEdit.value;
-    config.profileInfoEdit.textContent = config.infoInputEdit.value;
-    closePopup(config.popupEdit);
-}
-
-function render(){
-    initialCards.forEach((item) => {
-        config.elementsList.append(createCard(item));
-    });
-}
-
-render();
-
-setListnersToCloseByOverlay();
-
 formEditValidator.enableValidation();
 formAddValidator.enableValidation();
 
-config.popupFormEdit.addEventListener('submit', handleFormEditSubmit);
-config.popupFormAdd.addEventListener('submit', handleFormAddSubmit);
+const cardsList = new Section( {
+    data: initialCards,
+    renderer: (item) => {
+        const card = new Card(item, '.card-element', handleImageClick);
+        const cardElement = card.generateCard();
+        cardsList.addItem(cardElement);
+        }
+    }, config.elementsList);
+
+cardsList.renderItems();
 
 
-config.openAddFormButton.addEventListener('click', function () {
-    config.popupFormAdd.reset();
-    openPopup(config.popupAdd);});
+const userInfo = new UserInfo(config.profileNameEdit, config.profileInfoEdit);
+console.log(userInfo.getUserInfo());
 
-config.openEditFormButton.addEventListener('click', function () {
-    openPopup(config.popupEdit);});
 
-config.closeAddFormButton.addEventListener('click', function () {
-    closePopup(config.popupAdd);});
-    
-config.closeEditFormButton.addEventListener('click', function () {
-    closePopup(config.popupEdit);});
+const popupWithAddForm = new PopupWithForm( 
+    config.popupAdd, 
+    config.popupFormAdd,
+    (item) => {
+        const card = new Card(item, '.card-element', handleImageClick);
+        const cardElement = card.generateCard();
+        cardsList.addNewItem(cardElement);
+    });
 
-config.closeImgButton.addEventListener('click', function () {
-    closePopup(config.popupImg);});
+const popupWithEditForm = new PopupWithForm( 
+    config.popupEdit, 
+    config.popupFormEdit,
+    () => {
+        userInfo.setUserInfo(name, info);
+
+    });
+
+
+function handleImageClick( name, link) {
+    const popupImg = document.querySelector('.popup_img');
+    const imagePopup = new PopupWithImage( popupImg, name, link );
+    imagePopup.setEventListeners();
+    imagePopup.open();
+}
+
+// function handleFormAddSubmit(evt) {
+//     evt.preventDefault();
+//     renderer: (item) => {
+//         const card = new Card(item, '.card-element', handleImageClick);
+//         const cardElement = card.generateCard();
+//         cardsList.prepend(cardElement);
+//         };
+// }
+
+// function handleFormEditSubmit(evt) {
+//     evt.preventDefault(); 
+//     userInfo.setUserInfo( {
+//         name: config.nameInputEdit,
+//         info: config.infoInputEdit
+//     });
+//     console.log(name, info);
+// }
+
+
+
+// setListnersToCloseByOverlay();
+
+
+// config.popupFormEdit.addEventListener('submit', handleFormEditSubmit);
+// config.popupFormAdd.addEventListener('submit', handleFormAddSubmit);
+
+
+config.openAddFormButton.addEventListener('click', () => {
+    popupWithAddForm.setEventListeners();
+    popupWithAddForm.open();
+});
+
+config.openEditFormButton.addEventListener('click', () => {
+    popupWithEditForm.setEventListeners();
+    popupWithEditForm.open();
+});
+
+
+
+
+
+
+
+
+
+
+//Созданеи карточки и добавление на старницу
+// function createCard(item) {
+//     const card = new Card(item, '.card-element', handleImageClick);
+//     const cardElement = card.generateCard();
+//     return cardElement;
+// }
+
+// function render(){
+//     initialCards.forEach((item) => {
+//         config.elementsList.append(createCard(item));
+//     });
+// }
+
+// render();
+
+
+// const closeOnEsc = (event) => {
+//     if (event.key === "Escape") {
+//         const openedPopup = document.querySelector('.popup_opened')
+//         closePopup(openedPopup)
+//     };
+// }
+
+// function openPopup(popupElement) {
+//     popupElement.classList.add('popup_opened');
+//     document.addEventListener('keydown', closeOnEsc);
+// }
+
+// function closePopup(popupElement) {
+//     popupElement.classList.remove('popup_opened');
+//     document.removeEventListener('keydown', closeOnEsc);
+// }
+
+// function closeOnOverlay(evt,popups) {
+//     if (evt.target.classList.contains('popup_opened')) {
+//         closePopup(popups);
+//     }; 
+// }
+
+
+// function setListnersToCloseByOverlay() {
+//     const popupList = Array.from(config.popups);
+//     popupList.forEach((element) => {
+//         element.addEventListener('mousedown', function(evt) {
+//             closeOnOverlay(evt,element);
+//             });
+//         });
+// }
 
 
 

@@ -1,5 +1,5 @@
 
-class Card {
+export default class Card {
     constructor(data, selector, handleImageClick ) {
         this._selector = selector;
         this._name = data.name;
@@ -23,7 +23,7 @@ class Card {
     _setEventListeners() {
         this._element.querySelector('.element__trash-button').addEventListener('click', ()=>this._deleteElem());
         this._element.querySelector('.element__like-button').addEventListener('click', ()=>this._like());
-        this._elementPhoto.addEventListener('click', ()=>this._openImg());
+        this._element.querySelector('.element__photo').addEventListener('click', ()=>this._openImg());
     }
 
     generateCard() {
@@ -36,5 +36,3 @@ class Card {
         return this._element;
     }
 }
-
-export default Card;
