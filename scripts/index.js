@@ -7,35 +7,37 @@ import UserInfo from './UserInfo.js';
 import PopupWithForm from './PopupWithForm.js';
 import PopupWithImage from './PopupWithImage.js';
 
-console.log(initialCards);
-
 const formEditValidator = new FormValidator(config.formEditSelector, config);
 const formAddValidator = new FormValidator(config.formAddSelector, config);
-
-formEditValidator.enableValidation();
-formAddValidator.enableValidation();
 
 const cardsList = new Section( {
     data: initialCards,
     renderer: (item) => {
-        const card = new Card(item, '.card-element', handleImageClick);
+        const card = new Card(item, '.card-element', 
+        (name, link) => {
+            const popupImg = document.querySelector('.popup_img');
+            const imagePopup = new PopupWithImage( popupImg, name, link );
+            imagePopup.setEventListeners();
+            imagePopup.open();
+        });
         const cardElement = card.generateCard();
         cardsList.addItem(cardElement);
         }
     }, config.elementsList);
 
-cardsList.renderItems();
-
-
 const userInfo = new UserInfo(config.profileNameEdit, config.profileInfoEdit);
-console.log(userInfo.getUserInfo());
-
 
 const popupWithAddForm = new PopupWithForm( 
     config.popupAdd, 
     config.popupFormAdd,
     (item) => {
-        const card = new Card(item, '.card-element', handleImageClick);
+        const card = new Card(item, '.card-element', 
+        (name, link) => {
+            const popupImg = document.querySelector('.popup_img');
+            const imagePopup = new PopupWithImage( popupImg, name, link );
+            imagePopup.setEventListeners();
+            imagePopup.open();
+        });
         const cardElement = card.generateCard();
         cardsList.addNewItem(cardElement);
     });
@@ -44,17 +46,41 @@ const popupWithEditForm = new PopupWithForm(
     config.popupEdit, 
     config.popupFormEdit,
     () => {
-        userInfo.setUserInfo(name, info);
-
+        userInfo.setUserInfo(config.nameInputEdit, config.infoInputEdit);
     });
 
 
-function handleImageClick( name, link) {
-    const popupImg = document.querySelector('.popup_img');
-    const imagePopup = new PopupWithImage( popupImg, name, link );
-    imagePopup.setEventListeners();
-    imagePopup.open();
-}
+// function handleImageClick( name, link) {
+//     const popupImg = document.querySelector('.popup_img');
+//     const imagePopup = new PopupWithImage( popupImg, name, link );
+//     imagePopup.setEventListeners();
+//     imagePopup.open();
+// }
+
+
+formEditValidator.enableValidation();
+formAddValidator.enableValidation();
+
+cardsList.renderItems();
+
+config.openAddFormButton.addEventListener('click', () => {
+    popupWithAddForm.setEventListeners();
+    popupWithAddForm.open();
+});
+
+config.openEditFormButton.addEventListener('click', () => {
+    popupWithEditForm.setEventListeners();
+    config.nameInputEdit.value = userInfo.getUserInfo().name;
+    config.infoInputEdit.value = userInfo.getUserInfo().info;
+    console.log(config.nameInputEdit.value, config.infoInputEdit.value);
+    popupWithEditForm.open();
+});
+
+
+
+
+
+
 
 // function handleFormAddSubmit(evt) {
 //     evt.preventDefault();
@@ -81,25 +107,6 @@ function handleImageClick( name, link) {
 
 // config.popupFormEdit.addEventListener('submit', handleFormEditSubmit);
 // config.popupFormAdd.addEventListener('submit', handleFormAddSubmit);
-
-
-config.openAddFormButton.addEventListener('click', () => {
-    popupWithAddForm.setEventListeners();
-    popupWithAddForm.open();
-});
-
-config.openEditFormButton.addEventListener('click', () => {
-    popupWithEditForm.setEventListeners();
-    popupWithEditForm.open();
-});
-
-
-
-
-
-
-
-
 
 
 //Созданеи карточки и добавление на старницу

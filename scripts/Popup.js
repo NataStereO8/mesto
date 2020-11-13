@@ -14,8 +14,8 @@ export default class Popup {
     _handleOverlayClose(evt) {
         if (evt.target.classList.contains('popup_opened')) {
             this.close();
-            // if (event.target.classList !== event.currentTarget) {
-            //     this.close();
+        // if (event.target.classList === event.currentTarget) {
+        //     this.close();
         };
     }
 
@@ -37,8 +37,8 @@ export default class Popup {
 
         const popupList = Array.from(this._popups);
         popupList.forEach((element) => {
-            element.addEventListener('mousedown', function(evt) {
-            this._handleOverlayClose(evt);
+            element.addEventListener('mousedown', (event) => {
+            this._handleOverlayClose(event);
             });
         });
     }

@@ -18,6 +18,7 @@ constructor(  popup, name, link) {
     }
 
     setEventListeners() {
+        super.setEventListeners();
         this._popup.querySelector('.popup__close-button_img').addEventListener('click', ()=>this.close());
     }
 }
