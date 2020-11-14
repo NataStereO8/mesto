@@ -69,7 +69,7 @@ _setEventListeners(){
 }; 
 
 
-enableValidation = () => {
+enableValidation() {
     const submitFormHandler = (event) => {
         event.preventDefault();
     };

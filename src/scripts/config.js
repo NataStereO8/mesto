@@ -1,27 +1,34 @@
+import solar from '../images/solar-opposites.png';
+import star from '../images/star-vs-the-forces-of-evil.png';
+import pirat from '../images/the-pirates-in-an-adventure-with-scientists.png';
+import pony from '../images/pony.mov.png';
+import gravity from '../images/gravity-falls.png';
+import rick from '../images/rick&morty.png';
+
 export const initialCards = [
     {
         name: 'Солнечные противоположности',
-        link: './images/solar-opposites.png'
+        link:  solar
     },
     {
         name: 'Стар против сил зла',
-        link: './images/star-vs-the-forces-of-evil.png'
+        link: star
     },
     {
         name: 'Пираты-бездельники',
-        link: './images/the-pirates-in-an-adventure-with-scientists.png'
+        link: pirat
     },
     {
         name: 'PONY.MOV',
-        link: './images/pony.mov.png'
+        link: pony
     },
     {
         name: 'Гравити Фолз',
-        link: './images/gravity-falls.png'
+        link: gravity
     },
     {
         name: 'Рик и Морти',
-        link: './images/rick&morty.png'
+        link: rick
     }
 ];
 
