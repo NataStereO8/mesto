@@ -19,6 +19,4 @@ You can:
 * add functionality for setting likes
 * add new places
 
-**Project link**
 
-[Ссылка на проект](https://natastereo8.github.io/mesto/)
