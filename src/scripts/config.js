@@ -1,37 +1,4 @@
-import solar from '../images/solar-opposites.png';
-import star from '../images/star-vs-the-forces-of-evil.png';
-import pirat from '../images/the-pirates-in-an-adventure-with-scientists.png';
-import pony from '../images/pony.mov.png';
-import gravity from '../images/gravity-falls.png';
-import rick from '../images/rick&morty.png';
-
-export const initialCards = [
-    {
-        name: 'Солнечные противоположности',
-        link:  solar
-    },
-    {
-        name: 'Стар против сил зла',
-        link: star
-    },
-    {
-        name: 'Пираты-бездельники',
-        link: pirat
-    },
-    {
-        name: 'PONY.MOV',
-        link: pony
-    },
-    {
-        name: 'Гравити Фолз',
-        link: gravity
-    },
-    {
-        name: 'Рик и Морти',
-        link: rick
-    }
-];
-
+export const items = [{}];
 export const config = {
     templateElement: document.querySelector('.card-element').content,
     elementsList: document.querySelector('.elements__list'),
@@ -59,6 +26,7 @@ export const config = {
     infoInputEdit: document.querySelector('.popup__input_info_edit'),
     profileNameEdit: document.querySelector('.profile__title'),
     profileInfoEdit: document.querySelector('.profile__subtitle'),
+    profileAvatar: document.querySelectorAll('.profile__avatar'),
     nameInputAdd: document.querySelector('.popup__input_name_add'), 
     infoInputAdd: document.querySelector('.popup__input_info_add'),
 
