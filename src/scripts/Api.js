@@ -4,68 +4,63 @@ export default class Api {
         this.url = data.url;
     }
 
-    getInitialCards(){
-        return fetch(this.url, {
-            headers: this.headers
-        }).then((result) => {
-            if (!result.ok) {
-                return Promise.reject('Server error');
-            }
-            return result.json();
-        }).then((data) => {
-            // console.log(data);
-            return data;
-        }).catch(err => {
-            alert(err);
-        })
+    getReply(result) {
+
+        if (!result.ok) {
+            return Promise.reject('Server error');
+        }
+        return result.json();
     }
 
-    createCard(name, link) {
-        return fetch(this.url, {
+    getInitialCards(){
+        return fetch(`${this.url}/cards`, {
+            headers: this.headers
+        }).then(this.getReply)
+    }
+
+    createCard({name, link}) {
+        return fetch(`${this.url}/cards`, {
             method: "POST",
             headers: this.headers,
             body: JSON.stringify({name, link})
-        }).then((result) => {
-            if (!result.ok) {
-                return Promise.reject('Server error');
-            }
-            return result.json();
-        }).then((data) => {
-            return data;
-        }).catch(err => {
-            alert(err);
-        })
+        }).then(this.getReply)
     }
 
     deleteCard(id) {
-        return fetch(`${this.url}/${id}`, {
+        return fetch(`${this.url}/cards/${id}`, {
             method: "DELETE",
             headers: this.headers,
             body: JSON.stringify({name})
-        }).then((result) => {
-            if (!result.ok) {
-                return Promise.reject('Server error');
-            }
-            return result.json();
-        }).then((data) => {
-            return data;
-        }).catch(err => {
-            alert(err);
-        })
+        }).then(this.getReply)
     }
 
     getPersonalInfo() {
-        return fetch(this.url, {
+        return fetch(`${this.url}/users/me`, {
             headers: this.headers
-        }).then((result) => {
-            if (!result.ok) {
-                return Promise.reject('Server error');
-            }
-            return result.json();
-        }).then((data) => {
-            return data;
-        }).catch(err => {
-            alert(err);
-        })
+        }).then(this.getReply)
     }
-}
+
+    setPersonalInfo({name, about}) {
+        return fetch(`${this.url}/users/me`, {
+            method: "PATCH",
+            headers: this.headers,
+            body: JSON.stringify({name, about})
+        }).then(this.getReply)
+    }
+
+    setAvatarInfo(avatar){
+        return fetch(`${this.url}/users/me/avatar`, {
+            method: "PATCH",
+            headers: this.headers,
+            body: JSON.stringify(avatar)
+        }).then(this.getReply)
+    }
+
+    checkLikes(cardId, like) {
+        return fetch(`${this.url}/cards/likes/${cardId}`, {
+            method: like ? "PUT" : "DELETE",
+            headers: this.headers
+        })
+            .then(this.getReply)
+        }
+    }

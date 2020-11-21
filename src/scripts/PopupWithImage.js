@@ -1,7 +1,7 @@
 import Popup from './Popup.js';
 
 export default class PopupWithImage extends Popup {
-constructor(  popup, name, link) {
+constructor( popup, name, link) {
     super(popup);
     this._name = name;
     this._link = link;
@@ -19,6 +19,5 @@ constructor(  popup, name, link) {
 
     setEventListeners() {
         super.setEventListeners();
-        this._popup.querySelector('.popup__close-button_img').addEventListener('click', ()=>this.close());
     }
 }
