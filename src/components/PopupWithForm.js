@@ -5,6 +5,8 @@
         super(popup);
         this._handleFormSubmit = handleFormSubmit;
         this._popupForm = popupForm;
+        this._submitButton = this._popup.querySelector('.popup__save-button');
+        this._submitButtonDefault = this._submitButton.textContent;
     }
 
     _getInputValues() {
@@ -26,12 +28,15 @@
         super.close();      
     }
 
+    changeButton(flag){
+        this._submitButton.innerText = flag ? 'Пара минут и готово!' : this._submitButtonDefault;
+    }
+
     setEventListeners() {
         super.setEventListeners();
         this._popupForm.addEventListener("submit", (evt) => {
             evt.preventDefault();
             this._handleFormSubmit(this._getInputValues());
-            this.close();
         }); 
     }
 }
