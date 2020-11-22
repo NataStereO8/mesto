@@ -30,9 +30,9 @@ popupWithConfirm.setEventListeners();
 const createCard = (item, userId) => {
         const card = new Card(item, '.card-element', item.owner, userId,
             () => {
-                const imagePopup = new PopupWithImage(config.popupImg, item.name, item.link);
+                const imagePopup = new PopupWithImage(config.popupImg);
                 imagePopup.setEventListeners();
-                imagePopup.open();
+                imagePopup.open(item.name, item.link);
                 console.log(imagePopup);
             },
             (card) => {
