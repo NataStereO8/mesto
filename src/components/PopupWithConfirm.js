@@ -1,5 +1,5 @@
-import Popup from './Popup.js';
-export default class PopupWithConfirm extends Popup {
+import PopupWithForm from './PopupWithForm.js';
+export default class PopupWithConfirm extends PopupWithForm {
     constructor(popup, popupForm) {
         super(popup);
         this._popupForm = popupForm;
@@ -7,6 +7,7 @@ export default class PopupWithConfirm extends Popup {
     setSubmit(deleteCard){
         this.handleFormSubmit = deleteCard;
     }
+
     setEventListeners() {
         super.setEventListeners();
         this._popupForm.querySelector('.popup__save-button_confirm').addEventListener("click", (evt) => {
