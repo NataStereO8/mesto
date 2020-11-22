@@ -22,7 +22,8 @@ const api = new Api({
     url: 'https://mesto.nomoreparties.co/v1/cohort-17'
 })
 
-
+const imagePopup = new PopupWithImage(config.popupImg);
+imagePopup.setEventListeners();
 
 const popupWithConfirm = new PopupWithConfirm(config.popupConfirm, config.popupFormConfirm);
 popupWithConfirm.setEventListeners();
@@ -30,10 +31,7 @@ popupWithConfirm.setEventListeners();
 const createCard = (item, userId) => {
         const card = new Card(item, '.card-element', item.owner, userId,
             () => {
-                const imagePopup = new PopupWithImage(config.popupImg);
-                imagePopup.setEventListeners();
                 imagePopup.open(item.name, item.link);
-                console.log(imagePopup);
             },
             (card) => {
                 popupWithConfirm.open();
